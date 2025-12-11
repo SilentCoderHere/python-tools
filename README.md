@@ -7,6 +7,7 @@ Each tool is simple, lightweight, and solves one specific problem.
 
 ## 📂 Tools Included
 
+- **2FA Authenticator** - generate totp from secret
 - **Animation** - show animation till a task is in progress
 - **AutoDoc** - generate documenation, description for a function
 - **Command** - run given command on terminal and show output match with pattern
@@ -27,7 +28,7 @@ Each tool is simple, lightweight, and solves one specific problem.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/itzpremsingh/python-tools.git
+   git clone https://github.com/SilentCoderHere/python-tools.git
    cd python-tools
    ```
 
