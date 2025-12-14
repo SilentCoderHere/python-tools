@@ -1,33 +1,34 @@
-def time_format(sec, _format=0, _sort=0, _round=2):
-    hours = 0
-    minute = 0
+def time_format(sec: int, _format: int = 0, _sort: int = 0, _round: int = 2):
+    _hours = 0
+    _minute = 0
+    _sec = sec
 
     if sec > 3599:
-        hours += sec // 3600
-        sec = sec % 3600
+        _hours += sec // 3600
+        _sec = sec % 3600
 
     if sec > 59:
-        minute += sec // 60
-        sec = sec % 60
+        _minute += sec // 60
+        _sec = sec % 60
 
-    sec = round(sec, _round)
+    _sec = round(_sec, _round)
 
     if _sort:
-        hours = str(hours) + " h "
-        minute = str(minute) + " m "
-        sec = str(sec) + " s"
+        _hours = str(_hours) + " h "
+        _minute = str(_minute) + " m "
+        _sec = str(_sec) + " s"
 
     if _format:
-        if sec and minute == "0 m ":
-            return sec
+        if _sec and _minute == "0 m ":
+            return _sec
 
-        elif minute and hours == "0 h ":
-            return minute, sec
+        elif _minute and _hours == "0 h ":
+            return _minute, _sec
 
-    return hours, minute, sec
+    return _hours, _minute, _sec
 
 
-def size_format(byte, _round=1):
+def size_format(byte: int, _round: int = 1) -> tuple[int | float, str]:
     kb = 1024
     mb = 1048576
     gb = 1073741824
@@ -90,3 +91,8 @@ def direction(windDir: str) -> str:
             return "Unknown"
 
     return newWindDir
+
+
+if __name__ == "__main__":
+    print(direction("NNE"))
+    print(time_format(int(input(">>> "))))

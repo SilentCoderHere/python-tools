@@ -76,13 +76,14 @@ def watcher(filename: str) -> None:
                 quit()
 
 
-filename = getFile()
+if __name__ == "__main__":
+    filename = getFile()
 
-if not path.exists(filename):
-    print("File Not Found!")
+    if not path.exists(filename):
+        print("File Not Found!")
 
-elif filename.split(".")[-1] == "py":
-    watcher(filename)
+    elif filename.split(".")[-1] == "py":
+        watcher(filename)
 
-else:
-    print("Only Python File Supported!")
+    else:
+        print("Only Python File Supported!")

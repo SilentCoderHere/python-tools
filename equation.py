@@ -2,7 +2,7 @@ from math import sqrt
 
 
 class Equation:
-    def __init__(self, a, b, c, v="x") -> None:
+    def __init__(self, a: int, b: int, c: int, v: str = "x") -> None:
         self.a = a
         self.b = b
         self.c = c

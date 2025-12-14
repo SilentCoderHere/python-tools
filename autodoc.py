@@ -1,8 +1,9 @@
 from inspect import getfullargspec, isclass
 from io import StringIO
+from typing import Callable
 
 
-def inspectFunction(__func__) -> dict:
+def inspectFunction(__func__: Callable) -> dict:
     """
     Extract details about a function.
 
@@ -42,7 +43,7 @@ def inspectFunction(__func__) -> dict:
     return allData
 
 
-def buildDoc(__func__: object, read: bool = False) -> str:
+def buildDoc(__func__: Callable, read: bool = False) -> str:
     """
     Build a documentation string for a function.
 

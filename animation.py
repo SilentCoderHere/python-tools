@@ -7,7 +7,13 @@ class TimeError(Exception):
 
 
 class Animation(Thread):
-    def __init__(self, text="Animation", timeToSleep=0.2, dot=4, internet=False):
+    def __init__(
+        self,
+        text: str = "Animation",
+        timeToSleep: float = 0.2,
+        dot: int = 4,
+        internet: bool = False,
+    ):
         Thread.__init__(self)
         self.timeToSleep = timeToSleep
 

@@ -1,8 +1,11 @@
+from typing import Literal
+
+
 def integer(number: float) -> int:
     return int(number)
 
 
-def breakline(number=1):
+def breakline(number: int = 1) -> Literal[1]:
     print((number - 1) * "\n")
     return 1
 

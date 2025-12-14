@@ -1,3 +1,4 @@
+from io import StringIO
 from sys import stdin
 from termios import TCSADRAIN, tcgetattr, tcsetattr
 from tty import setraw
@@ -24,9 +25,8 @@ def getChar() -> str:
 
 
 def getInput(prompt: str = ""):
-    from io import StringIO
-
     stream = StringIO()
+    print(prompt, end="", flush=True)
 
     while True:
         char = getChar()
@@ -43,9 +43,8 @@ def getPassword(prompt: str = "", char="*"):
     if len(char) > 1:
         raise ValueError
 
-    from io import StringIO
-
     stream = StringIO()
+    print(prompt, end="", flush=True)
 
     while True:
         string = getChar()
@@ -59,5 +58,5 @@ def getPassword(prompt: str = "", char="*"):
 
 
 if __name__ == "__main__":
-    word = getPassword()
+    word = getPassword("Password: ")
     print(word)
