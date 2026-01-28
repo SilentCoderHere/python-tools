@@ -2,10 +2,6 @@ from threading import Thread
 from time import sleep
 
 
-class TimeError(Exception):
-    pass
-
-
 class Animation(Thread):
     def __init__(
         self,
@@ -14,15 +10,10 @@ class Animation(Thread):
         dot: int = 4,
         internet: bool = False,
     ):
+        assert timeToSleep <= 1
+        
         Thread.__init__(self)
         self.timeToSleep = timeToSleep
-
-        if __name__ != "__main__" and timeToSleep >= 1:
-            self.timeToSleep = 0.2
-
-        elif timeToSleep >= 1:
-            raise TimeError("Time must smaller than 1 second")
-
         self.maxNumOfDot = dot
         self.text = text
         self.loopTime = round(1 / timeToSleep)
@@ -62,7 +53,7 @@ class Animation(Thread):
 
 if __name__ == "__main__":
     timeToSleep = 5
-    anim = Animation(f"Example For {timeToSleep}s", dot=5, timeToSleep=0.9)
+    anim = Animation(f"Example For {timeToSleep}s", dot=5, timeToSleep=.1)
     anim.start()
     sleep(timeToSleep)
     anim.stop()
